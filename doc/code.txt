@@ -1,0 +1,74 @@
+    const borderWidth = 1;
+    const innerLineColor = 0xff0000;//0xffffff;
+    const innerLineAlpha = 0.3;
+
+
+
+    // 绘制内部分隔线
+    this.graphics.lineStyle(borderWidth, innerLineColor, innerLineAlpha);
+    
+    // 绘制水平分隔线
+    const horizontalY = y + blockSize / 2;
+    this.graphics.beginPath();
+    this.graphics.moveTo(x, horizontalY);
+    this.graphics.lineTo(x + blockSize, horizontalY);
+    this.graphics.strokePath();
+    
+    // 绘制垂直分隔线
+    const verticalX = x + blockSize / 2;
+    this.graphics.beginPath();
+    this.graphics.moveTo(verticalX, y);
+    this.graphics.lineTo(verticalX, y + blockSize);
+    this.graphics.strokePath();
+
+
+    private readonly SHAPES = [
+        [[1, 1, 1, 1]], // I
+        [[1, 1], [1, 1]], // O
+        [[1, 1, 1], [0, 1, 0]], // T
+        [[1, 1, 1], [1, 0, 0]], // L
+        [[1, 1, 1], [0, 0, 1]], // J
+        [[1, 1, 0], [0, 1, 1]], // S
+        [[0, 1, 1], [1, 1, 0]]  // Z
+    ];
+    private readonly COLORS = [
+        0x00b4d8, // 浅蓝色
+        0x90be6d, // 柔和绿色
+        0xf94144, // 柔和红色
+        0xf9c74f, // 柔和黄色
+        0x9d4edd, // 柔和紫色
+        0x48cae4, // 天蓝色
+        0xf8961e  // 柔和橙色
+    ];
+
+
+
+    private loadAudio() {
+        // 加载背景音乐
+        //this.bgm = this.sound.add(AudioConfig.bgm.key, AudioConfig.bgm.config);
+        //this.moveSound = this.sound.add(AudioConfig.effects.move.key);
+        //this.rotateSound = this.sound.add(AudioConfig.effects.rotate.key);
+        //this.dropSound = this.sound.add(AudioConfig.effects.drop.key);
+        //this.clearSound = this.sound.add(AudioConfig.effects.clear.key);
+    }
+
+        this.bgm.play();
+
+
+        // 添加半透明灰色遮罩
+        this.mask = scene.add.rectangle(x, y, size, size, 0x808080);
+        this.mask.setAlpha(0.5);
+        this.mask.setDepth(1);
+        scene.add.existing(this.mask);
+
+    private nextPieceText!: Phaser.GameObjects.Text;
+    private controlsText!: Phaser.GameObjects.Text;
+    private btnRestart!: Button;
+
+    // 音频
+    //private bgm!: Phaser.Sound.BaseSound;
+    //private moveSound!: Phaser.Sound.BaseSound;
+    //private rotateSound!: Phaser.Sound.BaseSound;
+    //private dropSound!: Phaser.Sound.BaseSound;
+    //private clearSound!: Phaser.Sound.BaseSound;
+
